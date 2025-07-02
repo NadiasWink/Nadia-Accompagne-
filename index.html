@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nadia Accompagne - Coaching & Soutien Scolaire | Révélez votre potentiel</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Apply Inter font globally */
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth; /* Enable smooth scrolling */
+        }
+        /* Simple animation for sections */
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+            opacity: 0;
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        /* Add delays for staggered animation */
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+        .delay-400 { animation-delay: 0.4s; }
+
+        /* Custom professional color palette */
+        :root {
+            --primary-color: #2563eb; /* Blue-600 */
+            --secondary-color: #4f46e5; /* Indigo-600 */
+            --accent-color: #10b981; /* Emerald-500 */
+            --text-dark: #1f2937; /* Gray-800 */
+            --text-medium: #4b5563; /* Gray-600 */
+            --text-light: #f9fafb; /* Gray-50 */
+            --bg-light: #ffffff;
+            --bg-medium: #f3f4f6; /* Gray-100 */
+            --bg-dark: #111827; /* Gray-900 */
+        }
+        .bg-primary { background-color: var(--primary-color); }
+        .text-primary { color: var(--primary-color); }
+        .hover\:bg-primary-dark:hover { background-color: #1d4ed8; /* Blue-700 */ }
+
+        .bg-secondary { background-color: var(--secondary-color); }
+        .text-secondary { color: var(--secondary-color); }
+
+        .text-accent { color: var(--accent-color); }
+
+        .text-dark { color: var(--text-dark); }
+        .text-medium { color: var(--text-medium); }
+        .text-light { color: var(--text-light); }
+
+        .bg-light { background-color: var(--bg-light); }
+        .bg-medium { background-color: var(--bg-medium); }
+        .bg-dark { background-color: var(--bg-dark); }
+
+        /* Style for service cards */
+        .service-card {
+            background-color: var(--bg-light);
+            border: 1px solid #e5e7eb; /* Gray-200 */
+            border-radius: 0.75rem; /* rounded-xl */
+            padding: 1.5rem; /* p-6 */
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1); /* shadow-md */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1); /* shadow-lg */
+        }
+
+        /* Mobile menu styles */
+        .mobile-menu {
+            transition: all 0.3s ease;
+        }
+        .mobile-menu.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        /* Performance improvements */
+        .lazy-load {
+            will-change: transform;
+        }
+
+        /* Accessibility improvements */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        /* Focus styles for accessibility */
+        .focus\:outline-none:focus {
+            outline: 2px solid var(--primary-color);
+            outline-offset: 2px;
+        }
+    </style>
+</head>
+<body class="bg-light text-dark">
+
+    <nav class="bg-light shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-primary" aria-label="Accueil Nadia Accompagne">Nadia Accompagne</a>
+            <div class="hidden md:flex space-x-6">
+                <a href="#about" class="text-medium hover:text-primary transition duration-300 focus:outline-none">À Propos</a>
+                <a href="#services" class="text-medium hover:text-primary transition duration-300 focus:outline-none">Services</a>
+                <a href="#contact" class="text-medium hover:text-primary transition duration-300 focus:outline-none">Contact</a>
+            </div>
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-medium focus:outline-none" aria-label="Ouvrir le menu">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="mobile-menu hidden md:hidden bg-light border-t border-gray-200">
+            <div class="px-6 py-4 space-y-3">
+                <a href="#about" class="block text-medium hover:text-primary transition duration-300">À Propos</a>
+                <a href="#services" class="block text-medium hover:text-primary transition duration-300">Services</a>
+                <a href="#contact" class="block text-medium hover:text-primary transition duration-300">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="bg-gradient-to-r from-blue-50 to-indigo-100 py-20 md:py-32 fade-in-up">
+        <div class="container mx-auto px-6 text-center">
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-dark mb-4">
+                Nadia Accompagne : Révélez votre potentiel
+            </h1>
+            <p class="text-xl md:text-2xl text-secondary font-semibold mb-8">
+                Réussissez vos projets scolaires et professionnels
+            </p>
+            <p class="max-w-3xl mx-auto text-lg text-medium leading-relaxed mb-10">
+                Collégiens, lycéens, étudiants, adultes en formation ou reconversion : je vous aide à retrouver la motivation, améliorer vos méthodes, préparer vos examens et gagner en confiance.
+            </p>
+            <a href="#contact" class="bg-primary hover:bg-primary-dark text-white font-semibold py-3 px-8 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 text-lg focus:outline-none">
+                Contactez-moi pour un premier échange
+            </a>
+        </div>
+    </header>
+
+    <section id="about" class="py-16 md:py-24 bg-light fade-in-up delay-100">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12 md:mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-dark mb-4">Mon Approche : Un Accompagnement Sur Mesure</h2>
+                <p class="text-lg text-medium max-w-2xl mx-auto">Une pédagogie claire, humaine et rassurante, fondée sur l'écoute, la bienveillance et la confiance mutuelle.</p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <div class="bg-gradient-to-br from-blue-100 to-indigo-200 h-64 md:h-80 rounded-lg flex items-center justify-center text-primary font-semibold text-lg">
+                        <div class="text-center">
+                            <i class="fas fa-graduation-cap text-6xl mb-4"></i>
+                            <p>Accompagnement personnalisé</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-medium leading-relaxed space-y-4">
+                    <p>Chez "Nadia Accompagne", chaque parcours est unique. Ma mission est de vous offrir un soutien totalement adapté à votre profil et à vos besoins spécifiques.</p>
+                    <p>Je ne me contente pas de transmettre des connaissances ; je m'attache à comprendre vos objectifs, vos éventuelles appréhensions et à identifier vos points forts pour lever les blocages.</p>
+                    <p class="font-semibold text-primary">Ensemble, nous construisons votre réussite. Je crois en votre potentiel et je suis là pour vous aider à y croire aussi !</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="py-16 md:py-24 bg-medium fade-in-up delay-200">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12 md:mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-dark mb-4">Mes Services Personnalisés</h2>
+                <p class="text-lg text-medium max-w-2xl mx-auto">Un soutien adapté à chaque étape de votre parcours.</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="service-card fade-in-up delay-300">
+                    <div class="text-4xl text-primary mb-4"><i class="fas fa-brain"></i></div>
+                    <h3 class="text-xl font-semibold text-dark mb-3">Coaching Scolaire & Motivation</h3>
+                    <p class="text-medium">Pour (re)trouver le plaisir d'apprendre, gagner en efficacité et surmonter les difficultés.</p>
+                </div>
+                <div class="service-card fade-in-up delay-400">
+                    <div class="text-4xl text-primary mb-4"><i class="fas fa-book-open-reader"></i></div>
+                    <h3 class="text-xl font-semibold text-dark mb-3">Cours Particuliers & Soutien</h3>
+                    <p class="text-medium">Pour maîtriser les matières clés (maths, français, etc.) et renforcer vos connaissances.</p>
+                </div>
+                <div class="service-card fade-in-up delay-300">
+                    <div class="text-4xl text-primary mb-4"><i class="fas fa-graduation-cap"></i></div>
+                    <h3 class="text-xl font-semibold text-dark mb-3">Préparation Concours & Examens</h3>
+                    <p class="text-medium">Pour aborder sereinement les épreuves (écrites et orales) avec méthode et confiance.</p>
+                </div>
+                <div class="service-card fade-in-up delay-400">
+                    <div class="text-4xl text-primary mb-4"><i class="fas fa-user-tie"></i></div>
+                    <h3 class="text-xl font-semibold text-dark mb-3">Accompagnement Adultes</h3>
+                    <p class="text-medium">Pour structurer votre reprise d'études ou votre projet de formation et atteindre vos objectifs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-16 md:py-24 bg-gradient-to-r from-primary to-secondary text-light fade-in-up delay-300">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">Prêt(e) à démarrer votre parcours vers la réussite ?</h2>
+            <p class="text-lg text-indigo-100 mb-8 max-w-xl mx-auto">Contactez-moi dès aujourd'hui pour discuter de vos besoins et voir comment je peux vous aider.</p>
+            <a href="mailto:nadia.accompagne@orange.fr?subject=Demande d'information - Site Web" class="bg-white hover:bg-gray-100 text-primary font-bold py-3 px-8 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 text-lg focus:outline-none">
+                <i class="fas fa-envelope mr-2"></i> Envoyez-moi un email
+            </a>
+        </div>
+    </section>
+
+    <footer class="bg-dark text-gray-400 py-10 fade-in-up delay-400">
+        <div class="container mx-auto px-6 text-center">
+            <div class="mb-6">
+                <p class="text-sm">&copy; 2025 Nadia Accompagne. Tous droits réservés.</p>
+                <a href="#" class="text-sm text-gray-500 hover:text-gray-300 transition duration-300 mt-2 inline-block">Mentions Légales & Politique de Confidentialité</a>
+            </div>
+
+            <div class="text-xs text-gray-500 space-y-1">
+                <p>
+                    <strong>Éditeur du site :</strong> Nadia Accompagne - Coach & Formatrice <br>
+                    Contact : nadia.accompagne@orange.fr <br>
+                    Site web professionnel dédié au coaching scolaire et à l'accompagnement éducatif
+                </p>
+                <p>Ce site respecte le RGPD. Vos données personnelles sont protégées et ne sont pas partagées avec des tiers.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu functionality
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            const isExpanded = !mobileMenu.classList.contains('hidden');
+            mobileMenuButton.setAttribute('aria-expanded', isExpanded);
+            mobileMenuButton.setAttribute('aria-label', isExpanded ? 'Fermer le menu' : 'Ouvrir le menu');
+        });
+
+        // Close mobile menu when clicking on a link
+        const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                mobileMenuButton.setAttribute('aria-expanded', 'false');
+                mobileMenuButton.setAttribute('aria-label', 'Ouvrir le menu');
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in-up').forEach(el => {
+            el.style.animationPlayState = 'paused';
+            observer.observe(el);
+        });
+    </script>
+
+</body>
+</html>
